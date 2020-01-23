@@ -24,7 +24,7 @@ section {
     justify-content: center;
     align-items: center;
     position: relative;
-    background: rgba(22, 9, 136, 0.574);
+    background: rgba(98, 67, 26, 0.836);
 }
 
 /* page header */
@@ -44,10 +44,10 @@ header {
 /* slide container */
 main {
     border: var(--wireframe);
-    height: 70%;
-    width: 80%;
-
-    transform: translate(-8%, 8%);
+    height: 65%;
+    width: 65%;
+    /* max-width: 1920px; */
+    transform: translate(0%, 12%);
 
     position: relative;
 }
