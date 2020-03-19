@@ -1,40 +1,32 @@
+// content selector
 const main_content = document.querySelector('.content');
 
+// content logic
+let displayIndex = 1;
+sc_elmnts(displayIndex);
 
-let slideIndex = 1;
-showSlides(slideIndex);
 
-function slidePanels(n) {
-    showSlides(slideIndex += n);
-    // showSlides(slideIndex -= n);
+// button logic
+function sc_elmnts(n) {
+    displaySc(displayIndex += n);
+    
 };
-function showSlides(n) {
+// function : display sc elmnts
+function displaySc(n) {
     let i;
-    let slidesDisplay = document.getElementsByClassName('slides');
-    if (n > slidesDisplay.length) {
-        slideIndex = 1;
+    let displayPage = document.getElementsByClassName('sc');
+    if (n > displayPage.length) {
+        displayIndex = 1;
+        
     }
     if (n < 1) {
-        slideIndex = slidesDisplay.length;
+        displayIndex = displayPage.length;
     }
-    for (i = 0; i < slidesDisplay.length; i++) {
-        slidesDisplay[i].style.display = 'none';
-        slidesDisplay[slideIndex-1].style.display = 'grid';
+    for (i = 0; i < displayPage.length; i++) {
+        displayPage[i].style.display = 'none';
+        displayPage[displayIndex-1].style.display = 'grid';
+        displayPage[displayIndex-1].style.transition = '3s all ease-in';
+    
     }
     
 };
-
-
-
-
-
-
-// main_content.addEventListener('scrollDown', nextSlide());
-// main_content.addEventListener('scrollUp', prevSlide());
-
-// function nextSlide() {
-//     slides[i]++;
-// };
-// function prevSlide() {
-//     slides[i]++;
-// };
