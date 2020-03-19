@@ -6,9 +6,9 @@
 }
 /* css variables */
 :root {
-    --wireframe: 4px solid darkblue;
+    /* --wireframe: 4px solid darkblue;
     --debugging: 3px dotted darkred;
-    --component: 3px dotted darkgreen;
+    --component: 3px dotted darkgreen; */
 
     --border: 3px solid #FFF;
     
