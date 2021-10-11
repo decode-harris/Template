@@ -1,2 +1,0 @@
-# displaycontent
- Project Showcase

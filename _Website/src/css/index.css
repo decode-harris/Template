@@ -1,0 +1,47 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --wireframe: 2px solid darkblue;
+  --component: 2px solid limegreen;
+}
+
+.page {
+  background: lightgray;
+  min-height: 100vh;
+  width: 100%;
+}
+
+header {
+  display: flex;
+  flex-direction: row-reverse;
+  height: 10vh;
+  border: var(--component);
+}
+header .btn {
+  height: 100%;
+  width: 20%;
+  border: var(--wireframe);
+}
+header nav {
+  height: 100%;
+  width: 80%;
+  list-style-type: none;
+  border: var(--wireframe);
+}
+header nav ul {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  list-style-type: none;
+  height: 100%;
+  transition: 200ms all ease-in;
+}
+header nav ul li {
+  border: var(--wireframe);
+}
+
+/*# sourceMappingURL=index.css.map */
