@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200&family=Yantramanav&display=swap");
 /*
     Table of Contents
 
@@ -18,8 +19,18 @@
 }
 
 :root {
-  --wireframe: 2px solid darkblue;
-  --component: 2px solid limegreen;
+  --font-titles: "Yantramanav", sans-serif;
+  --font-text: "Poppins", sans-serif;
+  --clr-darkgrey: rgb(34, 33, 33);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-titles);
+  font-weight: bold 900;
+}
+
+p {
+  font-family: var(--font-text);
 }
 
 .page {
@@ -58,11 +69,22 @@ header nav ul li {
 }
 
 main {
+  position: relative;
   border: var(--wireframe);
+}
+main .trigger {
+  position: fixed;
+  right: 10px;
+  text-decoration: underline;
 }
 
 section {
-  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  height: 100%;
   border: var(--component);
 }
 section article {
@@ -74,18 +96,35 @@ section article {
   height: 100%;
   border: var(--component);
 }
+section article a {
+  margin-bottom: 2rem;
+}
 
 footer {
+  margin-top: 5rem;
   background: #222121;
   color: #FFF;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-auto-rows: minmax(50px, auto);
+  gap: 10px;
+  padding: 10px;
 }
 footer ul {
   list-style: none;
+  font-family: var(--font-titles);
+}
+footer ul:nth-child(1) {
+  grid-column: span 2;
+}
+footer ul:nth-child(2) {
+  grid-column: span 2;
+}
+footer ul:nth-child(3) {
+  grid-column: span 4;
 }
 footer .footer-list {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-auto-rows: minmax(50px, auto);
+  margin-top: 1.5rem;
   border: var(--wireframe);
 }
 footer .footer-list .footer-items {
@@ -102,6 +141,8 @@ footer .footer-list-row {
   justify-content: space-evenly;
   align-items: center;
   min-height: 50px;
+  margin-top: 2rem;
+  margin-bottom: 1.5rem;
   border: var(--component);
 }
 footer .footer-list-row .footer-title {
@@ -111,10 +152,40 @@ footer .footer-list-row .footer-title {
   letter-spacing: 0.08rem;
 }
 footer .footer-list-row .footer-items {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   height: 40px;
   width: 40px;
   border-radius: 50%;
   border: 2px solid #FFF;
+  transition: 120ms all ease-in;
+}
+footer .footer-list-row .footer-items:hover {
+  transition: 100ms all ease-in-out;
+  background: lightgray;
+}
+footer .footer-list-row .footer-items:hover i {
+  color: var(--clr-darkgrey);
+}
+
+#hero {
+  background-image: url(../assets/img/bannerBirdsEye.jpeg);
+  background-position: center;
+  background-attachment: fixed;
+  position: relative;
+}
+#hero .content {
+  background: rgba(50, 18, 71, 0.411);
+  height: 100vh;
+  width: 100%;
+  color: #FFF;
+}
+#hero .content .content-title {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: red;
 }
 
 .content-landing-title {
@@ -131,16 +202,24 @@ footer .footer-list-row .footer-items {
   padding-right: 0.45rem;
 }
 
+.content-tagline {
+  margin-top: 1rem;
+  text-transform: capitalize;
+  font-size: 1.1rem;
+  border: 2px solid red;
+}
+
 .content-text {
   font-size: 1.18rem;
   line-height: 1.6;
-  margin-bottom: 2rem;
+  margin-top: 2rem;
   padding: 1rem 0;
 }
 
 .image-container {
   height: 300px;
   position: relative;
+  margin-top: 5rem;
   border: var(--wireframe);
 }
 .image-container img {
@@ -169,6 +248,73 @@ footer .footer-list-row .footer-items {
   opacity: 0.9;
 }
 
+.rewardsGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-auto-rows: minmax(50px, auto);
+  gap: 5px;
+  list-style-type: none;
+  min-height: 35vh;
+  width: 100%;
+}
+.rewardsGrid .grid-items {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  border: var(--wireframe);
+}
+.rewardsGrid .grid-items:nth-child(1) {
+  grid-column: span 4;
+  background: var(--clr-darkgrey);
+  color: #FFF;
+}
+.rewardsGrid .grid-items:nth-child(2) {
+  display: none;
+}
+.rewardsGrid .grid-items:nth-child(3) {
+  grid-column: span 4;
+}
+.rewardsGrid .btn-light {
+  margin-top: 0.75rem;
+  padding: 0.25rem;
+  background: transparent;
+  border: 2px solid #FFF;
+  color: #FFF;
+}
+.rewardsGrid .btn-dark {
+  margin-top: 0.75rem;
+  padding: 0.25rem;
+  background: #000;
+  border: 2px solid #FFF;
+  color: #FFF;
+}
+
+.quotedContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 5rem;
+  min-height: 25vh;
+  border-top: 2px solid #000;
+  border-bottom: 2px solid #000;
+}
+.quotedContainer .quote-text {
+  font-size: 1.25rem;
+  font-style: italic;
+  letter-spacing: 0.2rem;
+  padding: 1rem;
+  text-align: center;
+}
+.quotedContainer .quote-author {
+  font-size: 0.95rem;
+  font-weight: bold;
+  padding: 1rem;
+  text-align: center;
+}
+
 #internal-links .removeDesktopElement {
   display: none;
 }
@@ -180,6 +326,12 @@ footer .footer-list-row .footer-items {
   text-align: center;
   justify-content: center;
   align-items: center;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  background-image: url(../assets/img/bannerCafe.jpeg);
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
 }
 .banner .banner-text {
   border: var(--wireframe);

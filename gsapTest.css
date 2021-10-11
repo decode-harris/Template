@@ -1,0 +1,55 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+
+    /* developer borders */
+    --wireframe: 2px solid darkblue;
+    --debugging: 2px solid darkred;
+    --component: 2px solid limegreen;
+}
+
+main {
+    position: relative;
+}
+main .trigger {
+    position: fixed;
+    right: 10px;
+    text-decoration: underline;
+
+}
+
+section {
+    display: flex;
+    
+    height: 100vh;
+    padding: 2rem;
+
+    border: var(--wireframe);
+}
+section:nth-child(2),
+section:nth-child(4) {
+    flex-direction: row-reverse;
+}
+section h1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+    text-transform: capitalize;
+    letter-spacing: 2px;
+    text-decoration: underline;
+    width: 100%;
+    border: var(--debugging);
+}
+section div {
+    width: 100%;
+    border: var(--component);
+}
+.box1 {background: red;}
+.box2 {background: orangered;}
+.box3 {background: purple;}
+.box4 {background: blue;}
