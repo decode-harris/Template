@@ -26,6 +26,3 @@ nav_btn.addEventListener('click', ()=> { // apply an event listener to the navig
     console.log('Menu button Clicked');
     
 });
-
-// gsap.from('.image-container', {x: 50, duration: 1});
-// gsap.to(".image-container", {x: 0, duration: 1, delay: 3});
