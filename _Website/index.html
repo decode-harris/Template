@@ -11,6 +11,9 @@
     <!-- JS : Prototype Script -->
     <script defer src="src/js/index.js"></script>
 
+    <!-- JS : Animated Image Elements Script -->
+    <script defer src="src/js/animations.js"></script>
+
     <!-- CDN : GSAP Library -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.8.0/gsap.min.js"></script>
 
@@ -108,7 +111,7 @@
 
             <!-- article -->
             <article class="content">
-                <h1 class="content-landing-title">At Hudsons, we love <br> our coffee.</h1>
+                <h1 class="content-title animated-title">At Hudsons, we love <br> our coffee.</h1>
                 <p class="content-text">Visit us instore for a great experience.</p>
                 <!-- btn [ Order Online ] -->
                 <button class="btn" id="orderOnline">Order Online</button>
@@ -120,7 +123,7 @@
         <!-- section [ hero ] -->
 
         <!-- section [ introduction ] -->
-        <section class="container" id="introduction">
+        <section class="container" id="intro">
 
             <!-- article -->
             <article class="content">
@@ -132,8 +135,8 @@
 
                 <!-- image container -->
                 <div class="image-container">
-                    <img src="" alt="" class="img-lrg">
-                    <img src="" alt="" class="img-sml">
+                    <img src="" alt="" class="img-lrg animated-large-1">
+                    <img src="" alt="" class="img-sml animated1">
                 </div>
                 <!-- image container -->
                 
@@ -143,8 +146,8 @@
         </section>
         <!-- section [ introduction ] -->
 
-        <!-- section [ currentOfferings ] -->
-        <section class="container" id="">
+        <!-- section [ offerings ] -->
+        <section class="container" id="offerings">
 
             <!-- article -->
             <article class="content">
@@ -157,7 +160,7 @@
                 <!-- image container -->
                 <div class="image-container">
                     <img src="./src/assets/img/content-background1-lrg.jpeg" alt="Content Product : itemDescription(large)" class="img-lrg">
-                    <img src="./src/assets/img/content-coldbrew-sml.jpeg" alt="Content Product : itemDescription(small)" class="img-sml">
+                    <img src="./src/assets/img/content-coldbrew-sml.jpeg" alt="Content Product : itemDescription(small)" class="img-sml animated2">
                 </div>
                 <!-- image container -->
                 
@@ -165,10 +168,10 @@
             <!-- article -->
 
         </section>
-        <!-- section [ currentOfferings ] -->
+        <!-- section [ offerings ] -->
 
-        <!-- section [ specialityItems ] -->
-        <section class="container" id="introduction">
+        <!-- section [ speciality ] -->
+        <section class="container" id="speciality">
 
             <!-- article -->
             <article class="content">
@@ -181,7 +184,7 @@
                 <!-- image container -->
                 <div class="image-container">
                     <img src="" alt="" class="img-lrg">
-                    <img src="" alt="" class="img-sml">
+                    <img src="" alt="" class="img-sml animated3">
                 </div>
                 <!-- image container -->
                 
@@ -189,7 +192,7 @@
             <!-- article -->
 
         </section>
-        <!-- section [ specialityItems ] -->
+        <!-- section [ speciality ] -->
 
         <!-- div [ banner ] -->
         <div class="banner">
@@ -198,27 +201,28 @@
         </div>
         <!-- div [ banner ] -->
 
-        <!-- section [ companyRewards ] -->
-        <section class="container" id="companyRewards">
+        <!-- section [ rewards ] -->
+        <section class="container" id="rewards">
 
             <article class="content">
-                <!-- ul [ rewardsGrid ] -->
-                <ul class="rewardsGrid">
-                    <li class="grid-items">
-                        <h4 class="rewards-title">Avoid the wait and order <br> online for pickup at your <br> nearest Hudsons.</h4>
+                
+                <!-- ul [ list ] -->
+                <ul class="list">
+                    <li class="items">
+                        <h4 class="title">Avoid the wait and order <br> online for pickup at your <br> nearest Hudsons.</h4>
                         <button class="btn btn-light" id="orderOnline2">Order Online</button>
                     </li>
-                    <li class="grid-items">
+                    <li class="items">
                         <!-- image of rewards / ordering application -->
                     </li>
-                    <li class="grid-items">
+                    <li class="items">
                         <div class="icon"></div>
                         <h4 class="rewards-title">your love of coffe just got more rewarding.</h4>
                         <p class="rewards-text">join hudsons rewards and your first coffee is free</p>
                         <button class="btn btn-dark" id="learnMore">Learn More</button>
                     </li>
                 </ul>
-                <!-- ul [ rewardsGrid ] -->
+                <!-- ul [ list ] -->
 
                 <!-- Quoted Container -->
                 <div class="quotedContainer">
@@ -239,7 +243,7 @@
             <!-- article [ content ] -->
             <article class="content">
                 <h6 class="content-tagline">franchising opportunities</h6>
-                <h3 class="content-title">Join an international <br> network of coffee <br> experts.</h3>
+                <h3 class="content-title">Join an international coffee network</h3>
                 <p class="content-text">
                     Lorem ipsum dolor sit amet consectetur adipisicing elit.
                     Delectus, aspernatur quam. Nam dicta error qui.
@@ -250,7 +254,7 @@
                 <!-- image container -->
                 <div class="image-container">
                     <img src="" alt="" class="img-lrg">
-                    <img src="" alt="" class="img-sml">
+                    <img src="" alt="" class="img-sml animated4">
                 </div>
                 <!-- image container -->
 
@@ -294,11 +298,9 @@
         </footer>
         <!-- Footer Component -->
 
-        <!-- section [ ] -->
-        <!-- <section class="container" id=""></section> -->
-        <!-- section [ ] -->
-
+        <!-- Intersection Observer Trigger Element -->
         <div class="trigger">TRIGGER</div>
+        <!-- Intersection Observer Trigger Element -->
 
     </main>
     <!-- main -->
