@@ -6,31 +6,53 @@
     Table of Contents
 
     1. CSS Reset
-    2. Global Variables
-    3. Page / Application Wrapper
-    4. Header Component + Naivgation Component
-    5. Main Wrapping Element
-    6. Section Component + Article Component
-    7.
 
+    2. Global Variables
+
+    3. Page & Content Wrappers : Layout
+        3a. Page Wrapper
+        3b. Main Wrapper
+
+    4. Components : Layout
+        4a. Header Component [ Header ]
+        4b. Navigation Component [ Nav ]
+        4c. Section Component [ Container ]
+        4d. Article Component [ Content ]
+        4e. Footer Component [ Footer ]
+
+    5. Component Elements : Styles
+        5a. Hero Page [ Hero ]
+        5b. Content Elements [ Content ]
+        5c. Footer Elements [ Footer ]
+        5d. Image Container [ Image-Container ]
+        5e. Banner Element
+        5f. Rewards Unordered List
+        5g. Quoted Container
+
+    6. Remove Specific Content - Desktop Elements
+    7. Media Queries : Tablet, Laptop, Desktop
 
 */
 
+// 1. CSS Reset
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
 
-// Global Variables
+// 2. Global Variables
 :root {
 
-    // --wireframe: 2px solid darkblue;
-    // --component: 2px solid limegreen;
+    // Developer Borders
+    --wireframe: 2px solid darkblue;
+    --component: 2px solid limegreen;
 
+    // Google Fonts
     --font-titles: 'Yantramanav', sans-serif;
     --font-text: 'Poppins', sans-serif;
 
+    // Production Colors
     --clr-darkgrey: rgb(34, 33, 33);
     
 }
@@ -38,16 +60,48 @@
 h1,h2,h3,h4,h5,h6 {font-family: var(--font-titles); font-weight: bold 900;}
 p {font-family: var(--font-text);}
 
-// Page Wrapper
+/*
+    3. Page & Content Wrappers - Layout Properties
+
+    3a. Page Wrapper : Contains all page/app elements
+    3b. Main Wrapper : Contains all section components
+
+*/
 .page {
     background: lightgray;
     min-height: 100vh;
     width: 100%;
 }
+main {
+    position: relative; // Positioned relative to attach the Intersection Oberserver Trigger Element to page scroll.
+    border: 2px solid darkblue;
+    overflow: hidden;
+    
+    .trigger { // Intersection Observer Trigger Element
+        position: fixed;
+        right: 10px;
+        text-decoration: underline;
+    }
+}
 
-// Header Component - Layout Properties
-header {
+/*
+    4. Components - Layout Properties
 
+    4a. Header Component : Contains Navigation Component & Action Event Button.
+    4b. Navigation Component : Contains Navigation menu list.
+        - Hidden via Javascript with the opacity style feature.
+        - Becomes visible [ opacity:1 ] when the Navigation Menu Event Button is clicked/activated.
+    4c. Section Component : Contains content Article Component
+        - Selected via Javascript to trigger GSAP Imagery animations once a section has been scrolled
+    4d. Article Component : Content elements consisting of title, text & imagery.
+        - Houses the animated Image Container & accommodating imagery.
+    4e. Footer Component : Contains List elements  with internal & external links.
+*/
+
+/*
+    ========== 4a. Header Component ==========
+*/
+header { 
     display: flex;
     flex-direction: row-reverse;
     height: 10vh;
@@ -55,71 +109,60 @@ header {
     // dev border
     border: var(--component);
 
-    // Navigation Event Button
-    button {
-        
-        height: 100%;
-        width: 20%;
-        
-        // dev border
-        border: var(--wireframe);
-        
-    }
-
-    // Navigation Component - Layout Properties
+    /*
+        ========== 4b. Navigation Component ==========
+    */
     nav {
         height: 100%;
         width: 80%;
-        list-style-type: none;
+        list-style-type: none; // remove default list style
         
+        // dev border
         border: var(--wireframe);
 
         ul { // Navigation List Element
             display: flex;
             justify-content: space-evenly;
             align-items: center;
-            list-style-type: none; // remove default list properties
             height: 100%;
+            list-style-type: none; // remove default list properties
             transition: 200ms all ease-in; // transition for hidden list elements
 
-            li { // List Item Element
+            li { // Navigation List Item
 
                 // dev border
                 border: var(--wireframe);
             }
         }
+    }
+
+    // Navigation Menu Event Button
+    button {
+        height: 100%;
+        width: 20%;
         
-    }
-
-}
-
-// Main Wrapper - Layout Properties
-main {
-    position: relative;
-    // dev border
-    border: var(--wireframe);
-
-    .trigger {
-        position: fixed;
-        right: 10px;
-        text-decoration: underline;
+        // dev border
+        border: var(--wireframe);
     }
 }
 
-// Section Component - Layout Properties
-section {
+/*
+    ========== 4c. Section Component ==========
+*/
+section { 
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    // min-height: 100vh;
     min-height: 100vh;
     height: 100%;
 
     // dev border
     border: var(--component);
 
-    // Article Component
+    /*
+        ========== 4d. Article Component ==========
+    */  
     article {
         display: flex;
         flex-direction: column;
@@ -127,6 +170,7 @@ section {
         padding-left: 2rem;
         padding-right: 1rem;
         height: 100%;
+
         // dev border
         border: var(--component);
 
@@ -136,22 +180,30 @@ section {
     }
 }
 
-// Footer Component - Layout Properties
+/*
+    ========== 4e. Footer Component ==========
+*/
 footer {
-    margin-top: 5rem;
-    background: rgb(34, 33, 33);
-    color: #FFF;
-
+    // Display Properties [ Grid ]
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     grid-auto-rows: minmax(50px, auto);
     gap: 10px;
     padding: 10px;
+    margin-top: 5rem;
+
+    background: rgb(34, 33, 33);
+    color: #FFF;
     
-    ul {
+    ul { // Footer List Properties
         list-style: none;
         font-family: var(--font-titles);
+        margin-top: 1.5rem;
+
+        // dev border
+        border: var(--wireframe);
     }
+    // Grid List Placement
     ul:nth-child(1) {
         grid-column: span 2;
     }
@@ -162,102 +214,59 @@ footer {
         grid-column: span 4;
     }
 
-
-    .footer-list {
-        margin-top: 1.5rem;
-        border: var(--wireframe);
-
-        .footer-items {
-            display: flex;
-            align-items: center;
-            grid-column: span 1;
-            padding-left: 1rem;
-            font-size: 0.95rem;
-            font-weight: bold;
-            text-transform: uppercase;
-            
-        }
-    }
-    .footer-list-row {
-        display: flex;
-        justify-content: space-evenly;
-        align-items: center;
-        min-height: 50px;
-        margin-top: 2rem;
-        margin-bottom: 1.5rem;
-        
-        // dev border
-        border: var(--component);
-        .footer-title {
-            font-weight: bold;
-            font-size: 1.1rem;
-            text-transform: capitalize;
-            letter-spacing: 0.08rem;
-        }
-        .footer-items {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 40px;
-            width: 40px;
-            border-radius: 50%;
-            border: 2px solid #FFF;
-
-            transition: 120ms all ease-in;
-        }
-        .footer-items:hover {
-            transition: 100ms all ease-in-out;
-            background: lightgray;
-        }
-        .footer-items:hover i {
-            color: var(--clr-darkgrey);
-        }
-
-    }
 }
 
 
-// Section Landing - Style Properties
+/*
+    5. Component Elements - Style Properties
+
+        5a. Hero / Landing Page
+        5b. Content Elements
+        5c. Footer Elements
+        5d. Image Container
+        5e. Banner Element
+        5f. Rewards List
+        5g. Quoted Container
+*/
+
+/*
+    ========== 5a. Hero Page ==========
+*/
 #hero {
     background-image: url(../assets/img/bannerBirdsEye.jpeg);
     background-position: center;
     background-attachment: fixed;
     position: relative;
+
     .content {
         background:rgba(50, 18, 71, 0.411);;
         height: 100vh;
         width: 100%;
         color: #FFF;
-
-        .content-title { 
-            position: absolute;
-            top: 0;
-            left: 0;
-            background: red;
-        }
+    }
+    .content-title {
+        font-size: 3.2rem;
     }
 }
 
-
-// Article Content - Style Properties
-.content-landing-title {
-    font-size: 3.2rem;
-}
+/*
+    ========== 5b. Content Elements ==========
+*/
 .content-title {
-
     border-bottom: 2px solid #000;
     font-size: 2rem;
     letter-spacing: 0.2rem;
-    // margin-bottom: 1.75rem;
     margin-top: 1.75rem;
-    text-transform: capitalize;
     max-width: 285px;
     padding-right: 0.45rem;
+    text-transform: capitalize;
 }
 .content-tagline {
+    font-size: 1.1rem;
     margin-top: 1rem;
     text-transform: capitalize;
-    font-size: 1.1rem;
+
+    // dev border
     border: 2px solid red;
 }
 .content-text {
@@ -267,9 +276,61 @@ footer {
     padding: 1rem 0;
 }
 
-// Content [ Image-Container ] : Contains small & large image elements
+/*
+    ========== 5c. Footer Elements ==========
+*/
+.footer-items { // ul Internal Links [ Site Map List ]
+    display: flex;
+    align-items: center;
+    grid-column: span 1;
+    padding-left: 1rem;
+    font-size: 0.95rem;
+    font-weight: bold;
+    text-transform: uppercase;    
+    
+}
+.footer-list-row { // ul External Links [ Social Media List ]
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    min-height: 50px;
+    margin-top: 2rem;
+    margin-bottom: 1.5rem;
+    
+    // dev border
+    border: var(--component);
+
+    .footer-title { // External Links [ Title Element ]
+        font-weight: bold;
+        font-size: 1.1rem;
+        text-transform: capitalize;
+        letter-spacing: 0.08rem;
+    }
+    .footer-items { // External Links List [ Footer Items ]
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 40px;
+        width: 40px;
+        border-radius: 50%;
+        border: 2px solid #FFF;
+
+        transition: 120ms all ease-in;
+    }
+    .footer-items:hover {
+        transition: 100ms all ease-in-out;
+        background: lightgray;
+    }
+    .footer-items:hover i {
+        color: var(--clr-darkgrey);
+    }
+
+}
+/*
+    ========== 5d. Image Container ==========
+*/
 .image-container {
-    height: 300px;
+    height: 350px;
     position: relative;
     margin-top: 5rem;
 
@@ -285,23 +346,17 @@ footer {
         box-shadow: 9px 10px 7px -6px rgba(0,0,0,0.79); // box shadow for image elements
         -webkit-box-shadow: 9px 10px 7px -6px rgba(0,0,0,0.79);
         -moz-box-shadow: 9px 10px 7px -6px rgba(0,0,0,0.79);
-
-        // border: var(--component);
     }
     .img-lrg {
         position: relative;
         z-index: 1;
-        // padding-right: 100px;
-        // padding-bottom: 40px;
-        // padding: 10px 100px 40px 10px;
-
-        width: 225px;
-        height: 300px
+        // width: 225px;
+        // height: 300px
     }
     .img-sml {
         position: absolute;
-        bottom: -20px;
-        right: 10px;
+        bottom: 0px;
+        right: 0px;
         height: 220px;
         width: 175px;
         z-index: 2;
@@ -310,8 +365,42 @@ footer {
     }
 }
 
-// Content [ Rewards-Grid ]
-.rewardsGrid {
+/*
+    ========== 5e. Banner Element ==========
+*/
+.banner {
+    // Display Properties : Flex
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    height: 35vh;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+
+    // Background Image Properties
+    background-image: url(../assets/img/bannerCafe.jpeg);
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+
+    .banner-text {
+        // dev border
+        border: var(--wireframe);
+    }
+    .banner-title {
+        font-size: 1.75rem;
+        // dev border
+        border: var(--wireframe);
+    }
+}
+
+/*
+    ========== 5f. Rewards Unordered List ==========
+*/
+#rewards ul {
+    // Display Properties : Grid
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     grid-auto-rows: minmax(50px, auto);
@@ -320,28 +409,32 @@ footer {
     min-height: 35vh;
     width: 100%;
     
-    .grid-items {
+    .items {
+        // Display Properties : Flex
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
         text-align: center;
+
+        // dev border
         border: var(--wireframe);
     }
 
     // grid items placement
-    .grid-items:nth-child(1) {
+    .items:nth-child(1) {
         grid-column: span 4;
         background: var(--clr-darkgrey);
         color: #FFF;
     }
-    .grid-items:nth-child(2) {
+    .items:nth-child(2) {
         display: none; // remove second grid item from view
     }
-    .grid-items:nth-child(3) {
+    .items:nth-child(3) {
         grid-column: span 4;
     }
 
+    // Button Elements [ Create As Global Styles/Properties ]
     .btn-light {
         margin-top: 0.75rem;
         padding: 0.25rem;
@@ -358,7 +451,10 @@ footer {
     }
 }
 
-// Content [ Quoted-Container ]
+
+/*
+    ========== 5g. Quoted Container ==========
+*/
 .quotedContainer {
     // background:red;
 
@@ -387,39 +483,23 @@ footer {
     }
 }
 
-// Remove Specific Content - Desktop Elements
+/*
+    6. Remove Specific Content - Desktop Elements
+
+*/
 #internal-links .removeDesktopElement {display: none;} // remove this specific list item on mobile devices
 
-// Banner Content Splitter
-.banner {
-    height: 35vh;
 
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-    justify-content: center;
-    align-items: center;
 
-    margin-top: 2rem;
-    margin-bottom: 2rem;
 
-    background-image: url(../assets/img/bannerCafe.jpeg);
-    background-position: center;
-    background-size: cover;
-    background-attachment: fixed;
 
-    .banner-text {
-        // dev border
-        border: var(--wireframe);
-    }
-    .banner-title {
-        
-        font-size: 1.75rem;
-        // dev border
-        border: var(--wireframe);
-    }
-}
+/*
+    7. Media Query [ Desktop ]
 
+    Apply these styles when the condition is met.
+    Device width is greater than 760px.
+
+*/
 @media (min-width:760px) {
     // .removeDesktopElement {display: inline;}
 }
